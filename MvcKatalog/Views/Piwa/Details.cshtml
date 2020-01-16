@@ -1,0 +1,54 @@
+﻿@model MvcProj.Models.Piwo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Piwo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Typ)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Typ)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZawartoscAlk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZawartoscAlk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ibu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ibu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ekstrakt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ekstrakt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Browar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Browar.Nazwa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <button type="button" class="btn btn-info"><a asp-action="Edit" asp-route-id="@Model.Id"  style="color:white; text-decoration: none">Edytuj</a></button> |
+    <button type="button" class="btn btn-info"><a asp-action="Index"  style="color:white; text-decoration: none">Powrót do listy</a></button>
+</div>

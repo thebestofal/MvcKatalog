@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcProj.Models.Piwo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Katalog piw</h3>
+
+<hr/>
+<table class="table table-hover" style="text-align: center;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Typ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZawartoscAlk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ibu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ekstrakt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Browar)
+            </th>
+            <th>
+                <button type="button" class="btn btn-secondary"><a asp-action="Create" style="color:white; text-decoration: none">Dodaj piwo</a></button>
+               <!-- <a asp-action="Create">Dodaj piwo</a>-->
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Typ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZawartoscAlk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ibu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ekstrakt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Browar.Nazwa)
+            </td>
+            <td>
+                 <button type="button" class="btn btn-info"><a asp-action="Edit" asp-route-id="@item.Id" style="color:white; text-decoration: none">Edytuj</a></button> |
+                <button type="button" class="btn btn-info"><a asp-action="Details" asp-route-id="@item.Id" style="color:white; text-decoration: none">Szczegóły</a></button> |
+                <button type="button" class="btn btn-info"><a asp-action="Delete" asp-route-id="@item.Id" style="color:white; text-decoration: none">Usuń</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
