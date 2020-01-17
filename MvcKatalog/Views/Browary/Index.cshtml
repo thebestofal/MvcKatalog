@@ -11,10 +11,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nazwa)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Nazwa)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KrajPochodzenia)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["KrajSortParm"]">@Html.DisplayNameFor(model => model.KrajPochodzenia)</a>
             </th>
             <th>
                 <button type="button" class="btn btn-secondary"><a asp-action="Create" style="color:white; text-decoration: none">Dodaj browar</a></button>

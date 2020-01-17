@@ -11,8 +11,10 @@ namespace MvcProj.Models
     {
         public int Id { get; set; }
         [DisplayName("Nazwa Browaru")]
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole nazwa browaru nie może być puste")]
         public string Nazwa { get; set; }
+        [DisplayName("Kraj pochodzenia")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole kraj pochodzenia nie może być puste")]
         public string KrajPochodzenia { get; set; }
 
         public virtual ICollection<Piwo> Piwa { get; set; }

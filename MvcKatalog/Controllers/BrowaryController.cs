@@ -21,10 +21,34 @@ namespace MvcKatalog.Controllers
         }
 
         // GET: Browary
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.Browary.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["KrajSortParm"] = sortOrder == "Kraj" ? "kraj_desc" : "Kraj";
+            var browary = from s in _context.Browary
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    browary = browary.OrderByDescending(s => s.Nazwa);
+                    break;
+                case "Kraj":
+                    browary = browary.OrderBy(s => s.KrajPochodzenia);
+                    break;
+                case "kraj_desc":
+                    browary = browary.OrderByDescending(s => s.KrajPochodzenia);
+                    break;
+                default:
+                    browary = browary.OrderBy(s => s.Nazwa);
+                    break;
+            }
+            return View(await browary.AsNoTracking().ToListAsync());
         }
+        //before sorting
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Browary.ToListAsync());
+        //}
 
         // GET: Browary/Details/5
         public async Task<IActionResult> Details(int? id)

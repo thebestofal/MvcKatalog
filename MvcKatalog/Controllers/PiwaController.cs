@@ -21,11 +21,66 @@ namespace MvcKatalog.Controllers
         }
 
         // GET: Piwa
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var applicationDbContext = _context.Piwa.Include(p => p.Browar);
-            return View(await applicationDbContext.ToListAsync());
+           
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["TypSortParm"] = sortOrder == "Typ" ? "typ_desc" : "Typ";
+            ViewData["AlkSortParm"] = sortOrder == "Alk" ? "alk_desc" : "Alk";
+            ViewData["IbuSortParm"] = sortOrder == "Ibu" ? "ibu_desc" : "Ibu";
+            ViewData["EksSortParm"] = sortOrder == "Eks" ? "eks_desc" : "Eks";
+            ViewData["BrowarSortParm"] = sortOrder == "Browar" ? "browar_desc" : "Browar";
+
+
+            var piwa = from s in _context.Piwa.Include(p => p.Browar)
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    piwa = piwa.OrderByDescending(s => s.Nazwa);
+                    break;
+                case "Typ":
+                    piwa = piwa.OrderBy(s => s.Typ);
+                    break;
+                case "typ_desc":
+                    piwa = piwa.OrderByDescending(s => s.Typ);
+                    break;
+                case "Alk":
+                    piwa = piwa.OrderBy(s => s.ZawartoscAlk);
+                    break;
+                case "alk_desc":
+                    piwa = piwa.OrderByDescending(s => s.ZawartoscAlk);
+                    break;
+                case "Ibu":
+                    piwa = piwa.OrderBy(s => s.ZawartoscAlk);
+                    break;
+                case "ibu_desc":
+                    piwa = piwa.OrderByDescending(s => s.ZawartoscAlk);
+                    break;
+                case "Eks":
+                    piwa = piwa.OrderBy(s => s.ZawartoscAlk);
+                    break;
+                case "eks_desc":
+                    piwa = piwa.OrderByDescending(s => s.ZawartoscAlk);
+                    break;
+                case "Browar":
+                    piwa = piwa.OrderBy(s => s.ZawartoscAlk);
+                    break;
+                case "browar_desc":
+                    piwa = piwa.OrderByDescending(s => s.ZawartoscAlk);
+                    break;
+                default:
+                    piwa = piwa.OrderBy(s => s.Nazwa);
+                    break;
+            }
+            return View(await piwa.AsNoTracking().ToListAsync());
         }
+        //before sorting
+        //public async Task<IActionResult> Index()
+        //{
+        //    var applicationDbContext = _context.Piwa.Include(p => p.Browar);
+        //    return View(await applicationDbContext.ToListAsync());
+        //}
 
         // GET: Piwa/Details/5
         public async Task<IActionResult> Details(int? id)

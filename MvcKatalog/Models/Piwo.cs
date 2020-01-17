@@ -10,18 +10,21 @@ namespace MvcProj.Models
     {
         public int Id { get; set; }
         
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole nazwa nie może być puste")]
         public string Nazwa { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole typ nie może być puste")]
         public string Typ { get; set; }
 
-        [Range(1,100)]
-        [Display(Name = "Zawartość alkoholu w %")]
+        [Range(0D,100D, ErrorMessage="Podaj wartość od 0 do 100")]
+        //[RegularExpression(@"^\d[0-9]\.?[0-9]*$")]
+        [Display(Name = "Alkohol w %")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole zawartość alkoholu nie może być puste")]
         public double ZawartoscAlk { get; set; }
 
-        public int Ibu { get; set; }
+        public int? Ibu { get; set; }
 
-        [Display(Name = "Zawartość ekstraktu w %")]
-        public double Ekstrakt { get; set; }
+        [Display(Name = "Ekstrakt w %")]
+        public double? Ekstrakt { get; set; }
         [Required]
         public int BrowarId { get; set; }
         public virtual Browar Browar { get; set; }

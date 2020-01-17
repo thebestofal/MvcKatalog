@@ -11,26 +11,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nazwa)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Nazwa)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Typ)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TypSortParm"]">@Html.DisplayNameFor(model => model.Typ)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZawartoscAlk)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AlkSortParm"]">@Html.DisplayNameFor(model => model.ZawartoscAlk)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ibu)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IbuSortParm"]">@Html.DisplayNameFor(model => model.Ibu)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ekstrakt)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EksSortParm"]">@Html.DisplayNameFor(model => model.Ekstrakt)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Browar)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["BrowarSortParm"]">@Html.DisplayNameFor(model => model.Browar)</a>
             </th>
             <th>
                 <button type="button" class="btn btn-secondary"><a asp-action="Create" style="color:white; text-decoration: none">Dodaj piwo</a></button>
-               <!-- <a asp-action="Create">Dodaj piwo</a>-->
             </th>
         </tr>
     </thead>
