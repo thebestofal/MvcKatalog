@@ -167,4 +167,4 @@ C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\bin\Debug\netcoreapp3.1\xunit.
 C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\bin\Debug\netcoreapp3.1\xunit.core.dll
 C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\obj\Debug\netcoreapp3.1\MvcKatalog.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\obj\Debug\netcoreapp3.1\MvcKatalog.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
+C:\Users\Marek\source\repos\MvcKatalog\MvcKatalog\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
